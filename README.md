@@ -2,7 +2,7 @@
 
 An interactive map of 40 well-documented attacks, killings and abuses in Russia's war against Ukraine, as recorded by the UN Human Rights Monitoring Mission, the UN Commission of Inquiry, the OSCE, the ICC and Ukrainian authorities. Each event lists its figures, its geolocation, who is responsible according to the cited body, and its sources.
 
-**View the map:** https://jacopoottaviani.github.io/ukraine-war-crimes-map/
+**View the map:** https://jacopoottaviani.com/ukraine-war-crimes-map/
 
 This is a selection, not a complete record. Figures and sources were checked on 22 October 2026; see [data/verification.md](data/verification.md) for the check of each event.
 
