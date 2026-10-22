@@ -1,0 +1,517 @@
+<title>Ukraine War Crimes Map</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Interactive map of war crimes and serious violations of international humanitarian law in Ukraine documented by the UN, OSCE, ICC and Ukrainian authorities.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600;8..60,700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>/*LEAFLET_CSS*/</style>
+<style>
+/* Layout: a case-file sidebar (summary, filters, docket of events, sources) beside a full-height vector map; stacks map-over-docket on phones. */
+:root {
+  --paper: #eef1f3;
+  --panel: #f8f9fa;
+  --ink: #18212b;
+  --ink-2: #4a5663;
+  --ink-3: #6d7884;
+  --rule: #d3d9df;
+  --land: #f8f9f8;
+  --land-out: #e2e6e9;
+  --border-oblast: #b9c2ca;
+  --border-country: #8d99a5;
+  --sea: #cdd7df;
+  --river: #9db5c9;
+  --accent: #1f4e79;
+  --c-strike: #b3261e;
+  --c-protected: #b06d00;
+  --c-killing: #6a3c9c;
+  --c-detention: #0d7466;
+  --c-pow: #2d5fae;
+  --dot: #c3cbd2;
+  --focus: #1f4e79;
+  --f-display: "Source Serif 4", "Iowan Old Style", Georgia, serif;
+  --f-body: "Public Sans", "Helvetica Neue", Arial, sans-serif;
+  --f-mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #0f1419; --panel: #151b22; --ink: #e6eaee; --ink-2: #aab4be; --ink-3: #85909b; --rule: #2a333d;
+    --land: #1c242d; --land-out: #141a20; --border-oblast: #34404c; --border-country: #4d5a67; --sea: #0b1015; --river: #2c4a62;
+    --accent: #8db8e0; --c-strike: #f06a5f; --c-protected: #e6a33a; --c-killing: #b48be0; --c-detention: #3fbfac; --c-pow: #6f9ef0;
+    --dot: #34404c; --focus: #8db8e0; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #0f1419; --panel: #151b22; --ink: #e6eaee; --ink-2: #aab4be; --ink-3: #85909b; --rule: #2a333d;
+  --land: #1c242d; --land-out: #141a20; --border-oblast: #34404c; --border-country: #4d5a67; --sea: #0b1015; --river: #2c4a62;
+  --accent: #8db8e0; --c-strike: #f06a5f; --c-protected: #e6a33a; --c-killing: #b48be0; --c-detention: #3fbfac; --c-pow: #6f9ef0;
+  --dot: #34404c; --focus: #8db8e0; color-scheme: dark;
+}
+*, *::before, *::after { box-sizing: border-box; }
+html, body { height: 100%; }
+body { background: var(--paper); color: var(--ink); font-family: var(--f-body); font-size: 14px; line-height: 1.5; }
+.app { display: grid; grid-template-columns: minmax(340px, 410px) 1fr; height: 100%; }
+.side { overflow-y: auto; border-right: 1px solid var(--rule); background: var(--panel); min-width: 0; }
+.side-inner { padding-block: 20px 32px; padding-left: max(18px, env(safe-area-inset-left, 0px)); padding-right: 18px; display: grid; gap: 22px; }
+#map { height: 100%; background: var(--sea); }
+
+.eyebrow { font: 500 11px/1.3 var(--f-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--ink-3); }
+h1 { font: 700 26px/1.12 var(--f-display); margin: 6px 0 8px; text-wrap: balance; letter-spacing: -.01em; }
+.brand { display: flex; align-items: center; gap: 14px; margin: 10px 0 12px; cursor: default; -webkit-tap-highlight-color: transparent; }
+.brand h1 { margin: 0; min-width: 0; }
+.brand-mark { width: 104px; height: auto; flex: none; overflow: visible; }
+.brand-mark circle { fill: var(--dot); transition: fill .3s; }
+.brand-mark .ev { fill: var(--accent); transform-box: fill-box; transform-origin: center; }
+.brand:is(:hover, .play) .brand-mark circle { fill: color-mix(in srgb, var(--dot) 60%, var(--panel)); }
+.brand:is(:hover, .play) .brand-mark .ev { fill: var(--c); animation: lit .5s cubic-bezier(.2, .7, .2, 1) both; animation-delay: calc(var(--i) * 35ms); }
+@keyframes lit { 0% { fill: var(--dot); transform: scale(.6); } 60% { transform: scale(1.9); } 100% { fill: var(--c); transform: scale(1.45); } }
+.lede { color: var(--ink-2); margin: 0; max-width: 60ch; }
+h2 { font: 600 13px/1.3 var(--f-body); letter-spacing: .06em; text-transform: uppercase; margin: 0 0 10px; color: var(--ink-2); }
+
+.toll { border-top: 2px solid var(--ink); padding-top: 12px; }
+.toll-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px 16px; }
+.toll-num { font: 600 28px/1 var(--f-display); font-variant-numeric: tabular-nums; }
+.toll-lbl { color: var(--ink-2); font-size: 12.5px; margin-top: 4px; }
+.toll-src { margin-top: 10px; font-size: 12px; color: var(--ink-3); }
+.toll-src a { color: inherit; }
+
+.chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.chip { display: inline-flex; align-items: center; gap: 7px; font: 500 12.5px/1 var(--f-body); color: var(--ink); background: transparent; border: 1px solid var(--rule); border-radius: 999px; padding: 7px 11px; cursor: pointer; }
+.chip[aria-pressed="false"] { color: var(--ink-3); }
+.chip[aria-pressed="false"] .dot { background: transparent !important; }
+.chip .dot { width: 10px; height: 10px; border-radius: 50%; border: 2px solid currentColor; flex: none; }
+.chip .n { font: 500 11px var(--f-mono); color: var(--ink-3); }
+.chip:hover { border-color: var(--ink-3); }
+:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+
+.filters { display: grid; gap: 10px; }
+.row { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+.field { display: grid; gap: 4px; flex: 1 1 140px; min-width: 0; }
+.field label { font-size: 11.5px; color: var(--ink-3); }
+select, input[type="search"] { font: 14px var(--f-body); color: var(--ink); background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 7px 9px; width: 100%; }
+
+.status { display: flex; justify-content: space-between; gap: 8px; align-items: baseline; font-size: 12.5px; color: var(--ink-2); border-bottom: 1px solid var(--rule); padding-bottom: 8px; }
+.status b { color: var(--ink); font-variant-numeric: tabular-nums; }
+.reset { font: 500 12px var(--f-body); color: var(--accent); background: none; border: 0; padding: 0; cursor: pointer; text-decoration: underline; }
+
+.docket { list-style: none; margin: 0; padding: 0; }
+.docket li + li { border-top: 1px solid var(--rule); }
+.case { display: grid; grid-template-columns: 12px 1fr auto; gap: 4px 10px; width: 100%; text-align: left; background: none; border: 0; padding: 10px 4px; cursor: pointer; color: var(--ink); font: inherit; }
+.case:hover { background: color-mix(in srgb, var(--ink) 5%, transparent); }
+.case .dot { width: 10px; height: 10px; border-radius: 50%; margin-top: 5px; }
+.case .dot.hollow { background: transparent !important; border: 2px solid; }
+.case .t { font-weight: 600; line-height: 1.3; min-width: 0; }
+.case .m { grid-column: 2; font-size: 12px; color: var(--ink-3); }
+.case .m .d { font-family: var(--f-mono); }
+.case .k { grid-row: 1 / span 2; grid-column: 3; text-align: right; font: 600 15px/1.1 var(--f-display); font-variant-numeric: tabular-nums; }
+.case .k small { display: block; font: 400 10.5px var(--f-body); color: var(--ink-3); }
+.empty { color: var(--ink-3); padding: 12px 0; }
+
+.legend { display: grid; gap: 8px; font-size: 12.5px; color: var(--ink-2); }
+.legend .sw { display: inline-block; width: 12px; height: 12px; border-radius: 50%; vertical-align: -2px; margin-right: 6px; border: 2px solid var(--ink-2); }
+.legend .sw.dash { border-style: dashed; background: transparent; }
+.legend .sw.solid { background: var(--ink-2); }
+
+.icc { display: grid; gap: 10px; }
+.icc article { border-left: 2px solid var(--rule); padding-left: 10px; }
+.icc .d { font: 500 11.5px var(--f-mono); color: var(--ink-3); }
+.icc p { margin: 2px 0 0; font-size: 13px; color: var(--ink-2); }
+.icc b { color: var(--ink); }
+
+.sources ol { margin: 0; padding-left: 18px; display: grid; gap: 6px; font-size: 13px; }
+.sources a, .note a { color: var(--accent); }
+.note { font-size: 12.5px; color: var(--ink-2); display: grid; gap: 8px; }
+.note p { margin: 0; }
+
+/* Credits: the author's Moka from jacopoottaviani.com, in this page's accent. On hover it brews: the lid opens on its hinge and steam puffs out. */
+.moka { overflow: visible; flex: none; }
+.moka path { fill: var(--accent); }
+.moka .cap { transform-box: fill-box; transform-origin: 100% 100%; transition: transform .55s cubic-bezier(.2, .7, .2, 1); }
+.moka .steam circle { fill: var(--ink-2); opacity: 0; transform-box: fill-box; transform-origin: 50% 50%; }
+.brews:is(:hover, :focus-visible) .moka .cap { transform: rotate(24deg); }
+.brews:is(:hover, :focus-visible) .moka .steam circle { animation: moka-steam 1.8s ease-out .3s infinite; }
+.brews:is(:hover, :focus-visible) .moka .steam circle:nth-child(2) { animation-delay: .9s; }
+.brews:is(:hover, :focus-visible) .moka .steam circle:nth-child(3) { animation-delay: 1.5s; }
+@keyframes moka-steam { 0% { opacity: 0; transform: translate(0, 0) scale(.5); } 30% { opacity: .55; } 100% { opacity: 0; transform: translate(-12px, -9px) scale(1.15); } }
+.li-icon { fill: currentColor; flex: none; }
+.credit { border-top: 2px solid var(--ink); padding-top: 14px; display: grid; gap: 10px; }
+.credit-by { justify-self: start; display: flex; align-items: center; gap: 12px; color: var(--ink); text-decoration: none; }
+.credit-by .moka { width: 26px; height: 32px; }
+.credit-by span { display: grid; gap: 1px; font-size: 13px; color: var(--ink-2); }
+.credit-by b { font: 600 16px/1.2 var(--f-display); color: var(--ink); }
+.credit-by:hover b { text-decoration: underline; }
+.credit-li { justify-self: start; display: inline-flex; align-items: center; gap: 8px; font: 500 12.5px/1 var(--f-body); color: var(--ink); text-decoration: none; border: 1px solid var(--rule); border-radius: 999px; padding: 7px 12px; }
+.credit-li .li-icon { width: 14px; height: 14px; color: var(--accent); }
+.credit-li:hover { border-color: var(--ink-3); }
+.me a { display: grid; place-items: center; }
+.me .moka { width: 15px; height: 19px; }
+.me .li-icon { width: 14px; height: 14px; }
+.me a:hover .li-icon { color: var(--accent); }
+
+/* Map pieces */
+.leaflet-container { font-family: var(--f-body); background: var(--sea); }
+.city { font: 500 11px/1 var(--f-body); color: var(--ink-2); white-space: nowrap; text-shadow: 0 0 3px var(--land), 0 0 3px var(--land), 0 0 2px var(--land); pointer-events: none; }
+.city::before { content: ""; display: inline-block; width: 4px; height: 4px; background: var(--ink-2); border-radius: 50%; margin-right: 4px; vertical-align: 2px; }
+.sea-lbl { font: italic 500 12px var(--f-display); color: var(--ink-3); letter-spacing: .12em; white-space: nowrap; pointer-events: none; }
+.ev { border-radius: 50%; border: 2px solid var(--panel); box-shadow: 0 0 0 1px color-mix(in srgb, var(--ink) 35%, transparent); }
+.ev.hollow { background: var(--panel) !important; border-width: 3px; border-style: dashed; box-shadow: none; }
+/* Clusters: ring segments show the mix of categories inside; the disc grows with the deaths it contains. */
+.clu { display: grid; border-radius: 50%; padding: 5px; background: var(--ring); box-shadow: 0 1px 4px rgb(0 0 0 / .18); transition: transform .15s; }
+.clu > div { display: grid; place-content: center; text-align: center; border-radius: 50%; background: var(--panel); color: var(--ink); }
+.clu b { font: 700 15px/1 var(--f-display); font-variant-numeric: tabular-nums; }
+.clu small { font: 500 9px/1 var(--f-mono); color: var(--ink-3); margin-top: 2px; }
+.marker-cluster { background: transparent; }
+.marker-cluster:hover .clu { transform: scale(1.08); }
+
+.leaflet-popup-content-wrapper { background: var(--panel); color: var(--ink); border-radius: 8px; box-shadow: 0 6px 24px rgb(0 0 0 / .25); }
+.leaflet-popup-tip { background: var(--panel); }
+.leaflet-popup-content { margin: 14px 16px; font-size: 13px; line-height: 1.5; width: var(--pop-w, 320px) !important; }
+.leaflet-container a.leaflet-popup-close-button { color: var(--ink-3); }
+.pop .cat { display: inline-flex; align-items: center; gap: 6px; font: 500 11px var(--f-mono); text-transform: uppercase; letter-spacing: .06em; }
+.pop .cat i { width: 9px; height: 9px; border-radius: 50%; display: inline-block; }
+.pop h3 { font: 700 17px/1.2 var(--f-display); margin: 6px 0 4px; text-wrap: balance; }
+.pop .where { color: var(--ink-2); font-size: 12.5px; }
+.pop .geo { font: 400 11.5px var(--f-mono); color: var(--ink-3); }
+.pop .figs { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin: 10px 0; padding: 8px 0; border-block: 1px solid var(--rule); }
+.pop .figs b { font: 600 15px/1.2 var(--f-display); display: block; }
+.pop .figs span { font-size: 11px; color: var(--ink-3); }
+.pop p { margin: 0 0 8px; }
+.pop .fn { font-size: 12px; color: var(--ink-2); }
+.pop .att { font-size: 12px; background: color-mix(in srgb, var(--ink) 6%, transparent); border-radius: 4px; padding: 6px 8px; margin-bottom: 8px; }
+.pop ul { margin: 0; padding-left: 16px; font-size: 12px; }
+.pop ul a { color: var(--accent); }
+.leaflet-bar a { background: var(--panel); color: var(--ink); border-color: var(--rule); }
+.leaflet-bar a:hover { background: var(--paper); }
+.leaflet-control-attribution { background: color-mix(in srgb, var(--panel) 85%, transparent) !important; color: var(--ink-3); font-size: 10.5px; }
+.leaflet-control-attribution a { color: var(--ink-2); }
+.leaflet-top.leaflet-right { top: env(safe-area-inset-top, 0px); right: env(safe-area-inset-right, 0px); }
+
+@media (max-width: 760px) {
+  .app { grid-template-columns: 1fr; grid-template-rows: 56vh auto; height: auto; }
+  html, body { height: auto; }
+  #map { height: 56vh; order: -1; }
+  .side { overflow: visible; border-right: 0; border-top: 1px solid var(--rule); }
+  .side-inner { padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+}
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; animation: none !important; }
+  .brews:is(:hover, :focus-visible) .moka .steam circle { opacity: .4; transform: translateY(-7px); }
+}
+</style>
+
+<div class="app">
+  <aside class="side" aria-label="Case file">
+    <div class="side-inner">
+      <header>
+        <div class="eyebrow">Russia's war against Ukraine · since 24 Feb 2022</div>
+        <div class="brand" id="brand">
+          <svg class="brand-mark" id="brand-mark" aria-hidden="true"></svg>
+          <h1>Ukraine War Crimes Map</h1>
+        </div>
+        <p class="lede">Attacks, killings and abuses documented by the UN Human Rights Monitoring Mission, the UN Commission of Inquiry, the OSCE, the ICC and Ukrainian authorities. Each point lists its figures, its geolocation and the body that documented it.</p>
+      </header>
+
+      <section class="toll" aria-labelledby="toll-h">
+        <h2 id="toll-h">Civilian toll verified by the UN</h2>
+        <div class="toll-grid">
+          <div><div class="toll-num">16,874</div><div class="toll-lbl">civilians killed, including 820 children</div></div>
+          <div><div class="toll-num">51,173</div><div class="toll-lbl">civilians injured, including 3,126 children</div></div>
+        </div>
+        <p class="toll-src">HRMMU, 24 Feb 2022 – 31 Jul 2026 (<a href="https://news.un.org/en/story/2026/08/1168134" target="_blank" rel="noopener">published 13 Aug 2026</a>). January–September 2026 alone: 2,570 killed and 15,211 injured. The UN says the real figures are higher.</p>
+      </section>
+
+      <section class="filters" aria-labelledby="filt-h">
+        <h2 id="filt-h">Filter the map</h2>
+        <div class="chips" id="cats" role="group" aria-label="Categories"></div>
+        <div class="row">
+          <div class="field"><label for="f-year">Year</label>
+            <select id="f-year"><option value="">All years</option></select></div>
+          <div class="field"><label for="f-att">Responsibility</label>
+            <select id="f-att">
+              <option value="">Any</option>
+              <option value="ru">Russian armed forces</option>
+              <option value="ua">Ukrainian armed forces (alleged)</option>
+              <option value="nd">Not determined by the UN</option>
+            </select></div>
+        </div>
+        <div class="field"><label for="f-q">Search places and descriptions</label>
+          <input id="f-q" type="search" placeholder="e.g. Kharkiv, hospital, children" autocomplete="off"></div>
+      </section>
+
+      <section aria-labelledby="list-h">
+        <h2 id="list-h">Documented events</h2>
+        <div class="status" aria-live="polite"><span id="status"></span><button class="reset" id="reset" type="button">Clear filters</button></div>
+        <ul class="docket" id="docket"></ul>
+      </section>
+
+      <section aria-labelledby="leg-h">
+        <h2 id="leg-h">Reading the map</h2>
+        <div class="legend">
+          <div><span class="sw solid"></span>Filled point: Russian armed forces responsible, according to the cited body.</div>
+          <div><span class="sw dash"></span>Dashed ring: alleged Ukrainian responsibility, or responsibility not determined by the UN.</div>
+          <div>Point size grows with the number of people killed. Ringed discs group nearby events: the large figure is the number of events, the small figure the deaths they contain, and the ring's colours show the mix of categories. Bigger discs hold more deaths. Click a disc to zoom in.</div>
+          <div>Coordinates are given in decimal degrees. Each event states its precision: exact site, approximate site, settlement centre or wider area.</div>
+        </div>
+      </section>
+
+      <section class="icc" aria-labelledby="icc-h">
+        <h2 id="icc-h">ICC arrest warrants</h2>
+        <article><div class="d">17 Mar 2023</div><p><b>Vladimir Putin and Maria Lvova-Belova</b> for the unlawful deportation and transfer of children from occupied areas of Ukraine to Russia. Ukraine's <a href="https://childrenofwar.gov.ua/en/" target="_blank" rel="noopener">Children of War</a> portal tracks the children deported and returned.</p></article>
+        <article><div class="d">5 Mar 2024</div><p><b>Sergei Kobylash and Viktor Sokolov</b> for missile strikes on Ukraine's electricity infrastructure between 10 Oct 2022 and 9 Mar 2023.</p></article>
+        <article><div class="d">24 Jun 2024</div><p><b>Sergei Shoigu and Valery Gerasimov</b> for the same strikes on electricity infrastructure, including crimes against humanity of inhumane acts.</p></article>
+        <p class="note"><a href="https://www.icc-cpi.int/situations/ukraine" target="_blank" rel="noopener">ICC: Situation in Ukraine</a></p>
+      </section>
+
+      <section class="sources" aria-labelledby="src-h">
+        <h2 id="src-h">Official sources</h2>
+        <ol>
+          <li><a href="https://ukraine.ohchr.org/en/reports" target="_blank" rel="noopener">UN Human Rights Monitoring Mission in Ukraine (HRMMU / OHCHR)</a>: monthly civilian casualty updates, periodic and thematic reports</li>
+          <li><a href="https://www.ohchr.org/en/hr-bodies/hrc/iicihr-ukraine/index" target="_blank" rel="noopener">UN Independent International Commission of Inquiry on Ukraine</a>: reports A/77/533, A/HRC/52/62, A/78/540, A/HRC/55/66</li>
+          <li><a href="https://www.icc-cpi.int/situations/ukraine" target="_blank" rel="noopener">International Criminal Court</a>: arrest warrants in the Situation in Ukraine</li>
+          <li><a href="https://www.osce.org/odihr/515868" target="_blank" rel="noopener">OSCE ODIHR Moscow Mechanism</a>: expert mission report, April 2022</li>
+          <li><a href="https://ukraine.un.org/en" target="_blank" rel="noopener">United Nations in Ukraine</a>, <a href="https://news.un.org/en/" target="_blank" rel="noopener">UN News</a>, UNICEF and UNESCO statements</li>
+          <li><a href="https://www.gp.gov.ua/" target="_blank" rel="noopener">Office of the Prosecutor General of Ukraine</a> and Ukrainian regional authorities, for casualty counts</li>
+        </ol>
+      </section>
+
+      <section class="note" aria-labelledby="meth-h">
+        <h2 id="meth-h">How to read the figures</h2>
+        <p>Each headline death toll is the latest official count: the final Ukrainian figure where one exists, otherwise the UN figure. UN figures are minimums: they count only cases the UN has verified, and they are revised as verification continues. Where UN and Ukrainian figures differ, the event shows both.</p>
+        <p>Every event was checked against up to three sources on 22 Oct 2026, and its coordinates against OpenStreetMap.</p>
+        <p>"War crime" is a legal finding for courts. Where a UN body, the OSCE or the ICC has reached a conclusion, the event says so. Other events are attacks that Ukrainian prosecutors are investigating as war crimes and that the UN has condemned or recorded.</p>
+        <p>This is a selection of 40 well-documented events, not a complete record. Compiled 22 Oct 2026. Base map: geoBoundaries (ADM1) and Natural Earth.</p>
+      </section>
+
+      <footer class="credit" aria-label="Credits">
+        <a class="credit-by brews" href="https://jacopoottaviani.com" target="_blank" rel="noopener">
+          <svg class="moka" viewBox="8.5 2.5 47 58" aria-hidden="true"><g class="steam"><circle cx="23" cy="16.2" r="2.2"/><circle cx="27" cy="16.2" r="1.8"/><circle cx="31" cy="16.2" r="1.4"/></g><path class="cap" d="M29.4 6.3a3.3 3.3 0 1 0 6.6 0a3.3 3.3 0 1 0 -6.6 0ZM19.7 11.9 L45.7 11.9 L45.7 15 L19.7 15Z"/><path d="M18.7 17.4 L46.7 17.4 L43.7 31.4 L21.7 31.4ZM9.3 17.4 L16.3 17.4 L17.6 24ZM49.05 17.9 A7.16 7.16 0 0 1 46.05 31.9ZM21.7 33.8 L43.7 33.8 L47.2 60 L18.2 60Z"/></svg>
+          <span>Map and research by<b>Jacopo Ottaviani</b></span>
+        </a>
+        <a class="credit-li" href="https://www.linkedin.com/in/jacopo-ottaviani/" target="_blank" rel="noopener">
+          <svg class="li-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.55V9h3.57v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>
+          Connect on LinkedIn
+        </a>
+      </footer>
+    </div>
+  </aside>
+  <div id="map" role="region" aria-label="Map of documented events"></div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.5.3/leaflet.markercluster.js"></script>
+<script>/*BASEMAP*/</script>
+<script>window.EVENTS = /*EVENTS*/;</script>
+<script>
+(function () {
+  const DATA = window.EVENTS;
+  const EVENTS = DATA.events.slice().sort((a, b) => b.date.localeCompare(a.date));
+  const CATS = DATA.meta.categories;
+  const ATT = DATA.meta.attribution;
+  const CAT_ORDER = ["strike", "protected", "killing", "detention", "pow"];
+  const CAT_SHORT = { strike: "Attacks on civilians", protected: "Hospitals & heritage", killing: "Killings", detention: "Torture & detention", pow: "Prisoners of war" };
+  const css = name => getComputedStyle(document.documentElement).getPropertyValue(name).trim();
+  const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+  const fmt = n => n == null ? "–" : n.toLocaleString("en-GB");
+
+  // ---------- Header logo: Ukraine as a dot grid, lit where events are recorded ----------
+  (function drawBrand() {
+    const rings = [];
+    window.BASEMAP.oblasts.features.forEach(f => (f.geometry.type === "MultiPolygon" ? f.geometry.coordinates : [f.geometry.coordinates]).forEach(p => rings.push(p[0])));
+    let x0 = Infinity, x1 = -Infinity, y0 = Infinity, y1 = -Infinity;
+    rings.forEach(r => r.forEach(([x, y]) => { x0 = Math.min(x0, x); x1 = Math.max(x1, x); y0 = Math.min(y0, y); y1 = Math.max(y1, y); }));
+    const k = Math.cos(48.5 * Math.PI / 180), W = 100, s = W / ((x1 - x0) * k), H = (y1 - y0) * s;
+    const inside = (x, y, r) => {
+      let c = false;
+      for (let i = 0, j = r.length - 1; i < r.length; j = i++)
+        if ((r[i][1] > y) !== (r[j][1] > y) && x < (r[j][0] - r[i][0]) * (y - r[i][1]) / (r[j][1] - r[i][1]) + r[i][0]) c = !c;
+      return c;
+    };
+    // Offset rows of dots 3.6 units apart; a dot is kept when its centre falls inside an oblast.
+    const step = 3.6, rowH = step * Math.sqrt(3) / 2, cells = [];
+    for (let row = 0, gy = rowH / 2; gy < H; row++, gy += rowH)
+      for (let gx = step / 2 + (row % 2) * step / 2; gx < W; gx += step)
+        if (rings.some(r => inside(x0 + gx / s / k, y1 - gy / s, r))) cells.push({ x: gx, y: gy });
+    // Each event lights its nearest dot; on hover the dots light up in date order, in category colours.
+    DATA.events.slice().sort((a, b) => a.date.localeCompare(b.date)).forEach((e, i) => {
+      const ex = (e.lng - x0) * k * s, ey = (y1 - e.lat) * s;
+      let best = cells[0], d = Infinity;
+      cells.forEach(c => { const dd = (c.x - ex) ** 2 + (c.y - ey) ** 2; if (dd < d) { d = dd; best = c; } });
+      if (!best.cat) { best.cat = e.category; best.i = i; }
+    });
+    const svg = document.getElementById("brand-mark");
+    svg.setAttribute("viewBox", `0 0 ${W} ${H.toFixed(1)}`);
+    svg.innerHTML = cells.map(c => `<circle cx="${c.x.toFixed(1)}" cy="${c.y.toFixed(1)}" r="1.15"` +
+      (c.cat ? ` class="ev" style="--c: var(--c-${c.cat}); --i: ${c.i}"` : "") + "/>").join("");
+    // Touch screens have no hover, so a tap replays the animation.
+    const brand = document.getElementById("brand");
+    let t;
+    brand.addEventListener("click", () => {
+      brand.classList.remove("play"); void brand.offsetWidth; brand.classList.add("play");
+      clearTimeout(t); t = setTimeout(() => brand.classList.remove("play"), 2600);
+    });
+  })();
+
+  // ---------- Map and vector basemap ----------
+  const map = L.map("map", { zoomSnap: 0.25, minZoom: 5, maxZoom: 10, worldCopyJump: false, preferCanvas: false, zoomControl: true, attributionControl: true })
+    .fitBounds([[44.3, 22.1], [52.4, 40.2]], { padding: [10, 10] });
+  map.setMaxBounds([[40, 14], [57, 48]]);
+  map.attributionControl.setPrefix("").addAttribution("Boundaries: geoBoundaries, Natural Earth");
+  map.createPane("base"); map.getPane("base").style.zIndex = 200;
+  map.createPane("labels"); map.getPane("labels").style.zIndex = 450; map.getPane("labels").style.pointerEvents = "none";
+
+  const countries = L.geoJSON(window.BASEMAP.countries, { pane: "base", interactive: false });
+  const oblasts = L.geoJSON(window.BASEMAP.oblasts, { pane: "base", interactive: false });
+  const rivers = L.geoJSON(window.BASEMAP.rivers, { pane: "base", interactive: false });
+  countries.addTo(map); oblasts.addTo(map); rivers.addTo(map);
+
+  function styleBase() {
+    countries.setStyle({ color: css("--border-country"), weight: 0.8, fillColor: css("--land-out"), fillOpacity: 1 });
+    oblasts.setStyle({ color: css("--border-oblast"), weight: 0.8, fillColor: css("--land"), fillOpacity: 1 });
+    rivers.setStyle({ color: css("--river"), weight: 1.3, opacity: 1 });
+  }
+  styleBase();
+
+  const CITIES = [["Kyiv", 50.4501, 30.5234], ["Kharkiv", 49.9935, 36.2304], ["Odesa", 46.4825, 30.7233], ["Dnipro", 48.4647, 35.0462],
+    ["Lviv", 49.8397, 24.0297], ["Zaporizhzhia", 47.8388, 35.1396], ["Mariupol", 47.0971, 37.5434], ["Kherson", 46.6354, 32.6169],
+    ["Donetsk", 48.0159, 37.8028], ["Luhansk", 48.574, 39.3078], ["Mykolaiv", 46.975, 31.9946], ["Chernihiv", 51.4982, 31.2893],
+    ["Sumy", 50.9077, 34.7981], ["Vinnytsia", 49.2331, 28.4682], ["Simferopol", 44.9521, 34.1024], ["Poltava", 49.5883, 34.5514],
+    ["Zhytomyr", 50.2547, 28.6587], ["Kramatorsk", 48.7389, 37.5844]];
+  CITIES.forEach(([n, la, lo]) => L.marker([la, lo], { pane: "labels", interactive: false, keyboard: false,
+    icon: L.divIcon({ className: "city", html: n, iconSize: null, iconAnchor: [2, 6] }) }).addTo(map));
+  [["Black Sea", 43.6, 33.2], ["Sea of Azov", 46.15, 36.6]].forEach(([n, la, lo]) => L.marker([la, lo], { pane: "labels", interactive: false, keyboard: false,
+    icon: L.divIcon({ className: "sea-lbl", html: n, iconSize: null }) }).addTo(map));
+
+  // ---------- Credits: the author's Moka and LinkedIn, top right, reusing the sidebar's icons ----------
+  const Credits = L.Control.extend({ options: { position: "topright" }, onAdd() {
+    const el = L.DomUtil.create("div", "leaflet-bar me");
+    el.innerHTML = `<a class="brews" href="https://jacopoottaviani.com" target="_blank" rel="noopener" title="Map by Jacopo Ottaviani" aria-label="Map by Jacopo Ottaviani">${document.querySelector(".credit .moka").outerHTML}</a>` +
+      `<a href="https://www.linkedin.com/in/jacopo-ottaviani/" target="_blank" rel="noopener" title="Jacopo Ottaviani on LinkedIn" aria-label="Jacopo Ottaviani on LinkedIn">${document.querySelector(".credit .li-icon").outerHTML}</a>`;
+    L.DomEvent.disableClickPropagation(el);
+    return el;
+  } });
+  new Credits().addTo(map);
+
+  // ---------- Event markers ----------
+  const size = k => k ? Math.round(Math.min(40, 13 + Math.sqrt(k) * 1.9)) : 13;
+  const color = c => css("--c-" + c);
+  const hollow = e => e.attribution !== "ru";
+
+  function popupHTML(e) {
+    const killedFig = e.killed == null ? "Not quantified" : fmt(e.killed);
+    const injuredFig = e.injured == null ? "Not reported" : (e.injured_label || fmt(e.injured));
+    return `<div class="pop">
+      <div class="cat" style="color:${color(e.category)}"><i style="background:${color(e.category)}"></i>${esc(CATS[e.category])}</div>
+      <h3>${esc(e.title)}</h3>
+      <div class="where">${esc(e.place)} · ${esc(e.date_label)}</div>
+      <div class="geo">${e.lat.toFixed(4)}° N, ${e.lng.toFixed(4)}° E · ${esc(e.precision)}</div>
+      <div class="figs">
+        <div><b>${esc(e.killed_label || killedFig)}</b><span>Killed</span></div>
+        <div><b>${esc(injuredFig)}</b><span>Injured${e.affected ? " / affected" : ""}</span></div>
+      </div>
+      ${e.affected ? `<p class="fn"><strong>Affected:</strong> ${esc(e.affected)}</p>` : ""}
+      <p>${esc(e.description)}</p>
+      <p class="fn">${esc(e.killed_note)}</p>
+      <div class="att"><strong>Responsibility:</strong> ${esc(ATT[e.attribution])}<br><span>Basis: ${esc(e.attribution_basis)}</span></div>
+      <strong style="font-size:12px">Sources</strong>
+      <ul>${e.sources.map(s => `<li><a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.org)}</a>: ${esc(s.doc)}</li>`).join("")}</ul>
+    </div>`;
+  }
+
+  function makeIcon(e) {
+    const s = size(e.killed);
+    return L.divIcon({ className: "", iconSize: [s, s], iconAnchor: [s / 2, s / 2], popupAnchor: [0, -s / 2],
+      html: `<div class="ev${hollow(e) ? " hollow" : ""}" style="width:${s}px;height:${s}px;background:${color(e.category)};border-color:${hollow(e) ? color(e.category) : ""}"></div>` });
+  }
+
+  const markers = new Map();
+  EVENTS.forEach(e => {
+    const m = L.marker([e.lat, e.lng], { icon: makeIcon(e), title: e.title, alt: e.title, riseOnHover: true, killed: e.killed || 0, cat: e.category });
+    m.bindPopup(() => popupHTML(e), { maxWidth: 380, autoPanPadding: [24, 24] });
+    markers.set(e.id, m);
+  });
+
+  const cluster = L.markerClusterGroup({
+    maxClusterRadius: 44, showCoverageOnHover: false, spiderfyOnMaxZoom: true, zoomToBoundsOnClick: true,
+    iconCreateFunction: c => {
+      const kids = c.getAllChildMarkers();
+      const dead = kids.reduce((s, m) => s + (m.options.killed || 0), 0);
+      const n = kids.length; const s = Math.round(34 + Math.sqrt(dead) * 1.2);
+      const mix = CAT_ORDER.map(k => [k, kids.filter(m => m.options.cat === k).length]).filter(x => x[1]);
+      // Thin panel-coloured gaps separate the segments when there is more than one category.
+      const gap = mix.length > 1 ? 4 : 0;
+      let a = 0;
+      const stops = mix.map(([k, q]) => { const from = a; a += q / n * 360; return `var(--c-${k}) ${from}deg ${a - gap}deg, var(--panel) ${a - gap}deg ${a}deg`; }).join(",");
+      return L.divIcon({ className: "marker-cluster", iconSize: [s, s],
+        html: `<div class="clu" style="width:${s}px;height:${s}px;--ring:conic-gradient(${stops})" title="${n} events, ${dead.toLocaleString("en-GB")} killed (headline figures). Click to zoom in."><div><b>${n}</b><small>${dead ? dead.toLocaleString("en-GB") + " †" : "events"}</small></div></div>` });
+    }
+  });
+  map.addLayer(cluster);
+
+  // ---------- Filters, docket ----------
+  const state = { cats: new Set(CAT_ORDER), year: "", att: "", q: "" };
+  const years = [...new Set(EVENTS.map(e => e.date.slice(0, 4)))].sort();
+  const ySel = document.getElementById("f-year");
+  years.forEach(y => ySel.insertAdjacentHTML("beforeend", `<option value="${y}">${y}</option>`));
+
+  const catBox = document.getElementById("cats");
+  function renderChips() {
+    catBox.innerHTML = CAT_ORDER.map(c => {
+      const n = EVENTS.filter(e => e.category === c).length;
+      return `<button type="button" class="chip" data-cat="${c}" aria-pressed="${state.cats.has(c)}" style="color:${state.cats.has(c) ? color(c) : ""}"><span class="dot" style="background:${color(c)}"></span><span style="color:var(--ink)">${CAT_SHORT[c]}</span><span class="n">${n}</span></button>`;
+    }).join("");
+  }
+  catBox.addEventListener("click", ev => {
+    const b = ev.target.closest(".chip"); if (!b) return;
+    const c = b.dataset.cat;
+    state.cats.has(c) ? state.cats.delete(c) : state.cats.add(c);
+    renderChips(); apply();
+  });
+  ySel.addEventListener("change", () => { state.year = ySel.value; apply(); });
+  const aSel = document.getElementById("f-att");
+  aSel.addEventListener("change", () => { state.att = aSel.value; apply(); });
+  const qIn = document.getElementById("f-q");
+  qIn.addEventListener("input", () => { state.q = qIn.value.trim().toLowerCase(); apply(); });
+  document.getElementById("reset").addEventListener("click", () => {
+    state.cats = new Set(CAT_ORDER); state.year = ""; state.att = ""; state.q = "";
+    ySel.value = ""; aSel.value = ""; qIn.value = ""; renderChips(); apply();
+  });
+
+  const match = e => state.cats.has(e.category) && (!state.year || e.date.startsWith(state.year)) && (!state.att || e.attribution === state.att)
+    && (!state.q || [e.title, e.place, e.description, e.date_label].join(" ").toLowerCase().includes(state.q));
+
+  const docket = document.getElementById("docket");
+  function apply() {
+    const shown = EVENTS.filter(match);
+    cluster.clearLayers();
+    cluster.addLayers(shown.map(e => markers.get(e.id)));
+    const dead = shown.reduce((s, e) => s + (e.killed || 0), 0);
+    document.getElementById("status").innerHTML = `<b>${shown.length}</b> of ${EVENTS.length} events · <b>${dead.toLocaleString("en-GB")}</b> deaths in headline figures`;
+    docket.innerHTML = shown.length ? shown.map(e => `<li><button type="button" class="case" data-id="${e.id}">
+        <span class="dot${hollow(e) ? " hollow" : ""}" style="background:${color(e.category)};border-color:${color(e.category)}"></span>
+        <span class="t">${esc(e.title)}</span>
+        <span class="k">${e.killed == null ? "–" : fmt(e.killed)}<small>${e.killed == null ? "not quantified" : "killed"}</small></span>
+        <span class="m"><span class="d">${esc(e.date_label)}</span> · ${esc(e.place)}</span>
+      </button></li>`).join("") : `<li class="empty">No events match these filters.</li>`;
+  }
+  docket.addEventListener("click", ev => {
+    const b = ev.target.closest(".case"); if (!b) return;
+    const m = markers.get(b.dataset.id);
+    if (window.matchMedia("(max-width: 760px)").matches) document.getElementById("map").scrollIntoView({ behavior: "smooth", block: "start" });
+    cluster.zoomToShowLayer(m, () => { map.panTo(m.getLatLng()); m.openPopup(); });
+  });
+
+  // ---------- Theme changes ----------
+  function retheme() {
+    styleBase(); renderChips();
+    markers.forEach((m, id) => m.setIcon(makeIcon(EVENTS.find(e => e.id === id))));
+    cluster.refreshClusters(); apply();
+  }
+  window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", retheme);
+  new MutationObserver(retheme).observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
+
+  // Keep popups narrower than the map itself, which can be slim beside the sidebar.
+  const mapEl = document.getElementById("map");
+  const fitPopups = () => mapEl.style.setProperty("--pop-w", Math.max(220, Math.min(340, mapEl.clientWidth - 72)) + "px");
+  renderChips(); apply(); fitPopups();
+  window.addEventListener("resize", () => { map.invalidateSize(); fitPopups(); });
+})();
+</script>

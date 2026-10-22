@@ -1,0 +1,1447 @@
+{
+  "type": "FeatureCollection",
+  "metadata": {
+    "title": "Documented war crimes and serious violations of international humanitarian law in Ukraine",
+    "compiled": "2026-10-22",
+    "notes": "Headline figures are the latest official count: the final Ukrainian figure where one exists, otherwise the UN or Commission of Inquiry figure. Where UN and Ukrainian figures differ, the other figure is given in killed_note. UN figures are minimums that are verified case by case and may be revised. 'precision' describes how exactly the point is placed: 'site' = the building or street, 'site (approx.)' = within a few hundred metres, 'settlement' = centre of the town or village, 'area' = a representative point for a wider area. Every event was checked against up to three sources on 22 Oct 2026; see verification.md.",
+    "categories": {
+      "strike": "Attacks on civilians and residential areas",
+      "protected": "Attacks on hospitals and protected cultural sites",
+      "killing": "Unlawful killings and executions of civilians",
+      "detention": "Torture and unlawful detention",
+      "pow": "Treatment of prisoners of war"
+    },
+    "attribution": {
+      "ru": "Russian armed forces",
+      "ua": "Ukrainian armed forces (alleged)",
+      "nd": "Not determined by the UN"
+    },
+    "verified": "2026-10-22"
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          30.2263,
+          50.5436
+        ]
+      },
+      "properties": {
+        "id": "bucha-2022",
+        "title": "Killings of civilians in Bucha",
+        "place": "Bucha, Kyiv Oblast",
+        "precision": "settlement",
+        "date": "2022-02-27",
+        "date_label": "27 Feb – 30 Mar 2022",
+        "category": "killing",
+        "attribution": "ru",
+        "attribution_basis": "UN Commission of Inquiry; OHCHR",
+        "killed": 422,
+        "killed_label": "422 bodies found in the town",
+        "killed_note": "National Police of Ukraine (March 2024), which says the count is not final; about 1,190 bodies were found across Bucha district. OHCHR documented the unlawful killing of some 50 civilians during one visit on 9 April 2022. Across Kyiv, Chernihiv and Sumy regions, OHCHR documented 441 civilians killed in 102 settlements between 24 February and 6 April 2022.",
+        "injured": null,
+        "description": "During the Russian occupation of the town, civilians were shot in streets, yards and basements, many of them along Yablunska Street. Bodies were found after Russian forces withdrew at the end of March 2022. The UN Commission of Inquiry found that the summary executions, torture and sexual violence committed in Kyiv region were war crimes.",
+        "sources": [
+          {
+            "org": "UN Commission of Inquiry on Ukraine",
+            "doc": "Report A/77/533 (Oct 2022)",
+            "url": "https://undocs.org/en/A/77/533"
+          },
+          {
+            "org": "OHCHR / HRMMU",
+            "doc": "Killings of civilians: summary executions and attacks on individual civilians in Kyiv, Chernihiv and Sumy regions (Dec 2022)",
+            "url": "https://ukraine.ohchr.org/en/reports"
+          }
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          31.2769,
+          51.3451
+        ]
+      },
+      "properties": {
+        "id": "yahidne-2022",
+        "title": "Villagers held in a school basement in Yahidne",
+        "place": "Yahidne, Chernihiv Oblast",
+        "precision": "settlement",
+        "date": "2022-03-03",
+        "date_label": "3 – 31 Mar 2022 (28 days)",
+        "category": "detention",
+        "attribution": "ru",
+        "attribution_basis": "UN Commission of Inquiry",
+        "killed": 10,
+        "killed_label": "10 died",
+        "killed_note": "Ten older people died during the confinement because of the inhumane conditions (UN Commission of Inquiry, A/77/533 para. 79).",
+        "affected": "365 civilians held, including 70 children; the youngest was six weeks old",
+        "injured": null,
+        "description": "Russian forces set up their base on the ground floor of the village school and confined 365 residents in its basement for 28 days, with little food, water, light, ventilation or medical care. The Commission found that Russian forces unlawfully confined civilians, including children, in inhumane conditions.",
+        "sources": [
+          {
+            "org": "UN Commission of Inquiry on Ukraine",
+            "doc": "Report A/77/533 (Oct 2022)",
+            "url": "https://undocs.org/en/A/77/533"
+          }
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          36.2297,
+          50.0053
+        ]
+      },
+      "properties": {
+        "id": "kharkiv-oda-2022",
+        "title": "Missile strike on the Kharkiv regional administration",
+        "place": "Freedom Square, Kharkiv",
+        "precision": "site (approx.)",
+        "date": "2022-03-01",
+        "date_label": "1 Mar 2022",
+        "category": "strike",
+        "attribution": "ru",
+        "attribution_basis": "Ukrainian authorities",
+        "killed": 10,
+        "killed_label": "At least 10 killed",
+        "killed_note": "State Emergency Service of Ukraine on the day: at least 10 killed and more than 20 injured. The regional governor's preliminary count was 7 killed and 24 injured.",
+        "injured": 20,
+        "injured_label": "20+ injured",
+        "description": "A cruise missile hit the regional state administration building on Freedom Square in central Kharkiv during the morning rush hour, as the city was under heavy shelling.",
+        "sources": [
+          {
+            "org": "OHCHR / HRMMU",
+            "doc": "Periodic report on the human rights situation in Ukraine, 1 Feb – 31 Jul 2022",
+            "url": "https://ukraine.ohchr.org/en/reports"
+          },
+          {
+            "org": "Office of the Prosecutor General of Ukraine",
+            "doc": "War crimes register",
+            "url": "https://www.gp.gov.ua/"
+          }
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          30.4479,
+          50.4717
+        ]
+      },
+      "properties": {
+        "id": "kyiv-tv-tower-2022",
+        "title": "Strike near the Kyiv TV tower at Babyn Yar",
+        "place": "Babyn Yar, Kyiv",
+        "precision": "site",
+        "date": "2022-03-01",
+        "date_label": "1 Mar 2022",
+        "category": "protected",
+        "attribution": "ru",
+        "attribution_basis": "Ukrainian authorities",
+        "killed": 5,
+        "killed_label": "5 killed",
+        "killed_note": "State Emergency Service of Ukraine.",
+        "injured": 5,
+        "description": "Missiles struck the television tower next to the Babyn Yar Holocaust memorial site, where tens of thousands of Jews were murdered in 1941. Passers-by were killed.",
+        "sources": [
+          {
+            "org": "OHCHR / HRMMU",
+            "doc": "Periodic report on the human rights situation in Ukraine, 1 Feb – 31 Jul 2022",
+            "url": "https://ukraine.ohchr.org/en/reports"
+          }
+        ],
+        "injured_label": "5 injured"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          31.2789,
+          51.4893
+        ]
+      },
+      "properties": {
+        "id": "chernihiv-chornovola-2022",
+        "title": "Air strike on a residential area of Chernihiv",
+        "place": "Viacheslava Chornovola Street, Chernihiv",
+        "precision": "site (approx.)",
+        "date": "2022-03-03",
+        "date_label": "3 Mar 2022",
+        "category": "strike",
+        "attribution": "ru",
+        "attribution_basis": "Ukrainian authorities",
+        "killed": 47,
+        "killed_label": "47 killed",
+        "killed_note": "Chernihiv regional administration: 38 men and 9 women. The UN Commission of Inquiry wrote that the attacks on Chernihiv's residential areas that day killed at least 20 people.",
+        "injured": null,
+        "description": "Unguided aerial bombs fell on apartment blocks and a square where people were queuing, during the siege of Chernihiv.",
+        "sources": [
+          {
+            "org": "UN Commission of Inquiry on Ukraine",
+            "doc": "Report A/HRC/52/62 (Mar 2023), para. 31",
+            "url": "https://undocs.org/en/A/HRC/52/62"
+          },
+          {
+            "org": "Office of the Prosecutor General of Ukraine",
+            "doc": "War crimes register",
+            "url": "https://www.gp.gov.ua/"
+          }
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.5434,
+          47.0971
+        ]
+      },
+      "properties": {
+        "id": "mariupol-maternity-2022",
+        "title": "Attack on Mariupol maternity hospital No. 3",
+        "place": "Mariupol, Donetsk Oblast",
+        "precision": "settlement (exact site not confirmed)",
+        "date": "2022-03-09",
+        "date_label": "9 Mar 2022",
+        "category": "protected",
+        "attribution": "ru",
+        "attribution_basis": "OSCE Moscow Mechanism mission",
+        "killed": 3,
+        "killed_label": "3 killed, including a girl",
+        "killed_note": "Mariupol City Council on the day: 3 dead, including a girl, and 17 injured. AP later reported that a pregnant woman and her baby, injured in the strike, also died.",
+        "injured": 17,
+        "injured_label": "17 injured",
+        "description": "An air strike destroyed the maternity and children's hospital during the siege of Mariupol. The OSCE Moscow Mechanism experts concluded that the hospital was destroyed by a deliberate Russian attack and that the attack clearly violated international humanitarian law.",
+        "sources": [
+          {
+            "org": "OSCE ODIHR",
+            "doc": "Moscow Mechanism report, April 2022",
+            "url": "https://www.osce.org/odihr/515868"
+          }
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.551,
+          47.0966
+        ]
+      },
+      "properties": {
+        "id": "mariupol-theatre-2022",
+        "title": "Bombing of the Mariupol Drama Theatre",
+        "place": "Theatre Square, Mariupol",
+        "precision": "site",
+        "date": "2022-03-16",
+        "date_label": "16 Mar 2022",
+        "category": "strike",
+        "attribution": "ru",
+        "attribution_basis": "OSCE Moscow Mechanism mission",
+        "killed": 300,
+        "killed_label": "About 300 (estimate)",
+        "killed_note": "Mariupol City Council estimated about 300 dead from witness accounts. An Associated Press reconstruction put it closer to 600. The UN monitoring mission said it could not verify the toll.",
+        "injured": null,
+        "description": "The theatre was sheltering hundreds of civilians. The word \"ДЕТИ\" (children) was painted in large letters on the ground on both sides of the building. The UN Commission of Inquiry found the attack, likely carried out by Russian forces, to be indiscriminate. The OSCE experts called it most likely an egregious violation of international humanitarian law.",
+        "sources": [
+          {
+            "org": "UN Commission of Inquiry on Ukraine",
+            "doc": "Report A/HRC/52/62 (Mar 2023), para. 31",
+            "url": "https://undocs.org/en/A/HRC/52/62"
+          },
+          {
+            "org": "OSCE ODIHR",
+            "doc": "Moscow Mechanism report, April 2022",
+            "url": "https://www.osce.org/odihr/515868"
+          }
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          31.9976,
+          46.9748
+        ]
+      },
+      "properties": {
+        "id": "mykolaiv-oda-2022",
+        "title": "Missile strike on the Mykolaiv regional administration",
+        "place": "Mykolaiv",
+        "precision": "site",
+        "date": "2022-03-29",
+        "date_label": "29 Mar 2022",
+        "category": "strike",
+        "attribution": "ru",
+        "attribution_basis": "Ukrainian authorities",
+        "killed": 37,
+        "killed_label": "37 killed",
+        "killed_note": "State Emergency Service of Ukraine. Injured: 33 on the first day; later counts give 34.",
+        "injured": 33,
+        "injured_label": "33 injured",
+        "description": "A missile tore through the centre of the regional administration building as staff arrived for work.",
+        "sources": [
+          {
+            "org": "Office of the Prosecutor General of Ukraine",
+            "doc": "War crimes register",
+            "url": "https://www.gp.gov.ua/"
+          }
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.5431,
+          48.726
+        ]
+      },
+      "properties": {
+        "id": "kramatorsk-station-2022",
+        "title": "Cluster-munition strike on Kramatorsk railway station",
+        "place": "Kramatorsk railway station, Donetsk Oblast",
+        "precision": "site",
+        "date": "2022-04-08",
+        "date_label": "8 Apr 2022",
+        "category": "strike",
+        "attribution": "ru",
+        "attribution_basis": "UN Commission of Inquiry",
+        "killed": 61,
+        "killed_label": "61 killed",
+        "killed_note": "Final Ukrainian count. The UN Commission of Inquiry gives 59 killed and 92 injured. On the day, the UN Country Team reported at least 39 killed, including 4 children.",
+        "injured": 100,
+        "injured_label": "100+ injured",
+        "description": "A ballistic missile with a cluster warhead hit the station while thousands of people, mostly women, children and older people, were waiting to be evacuated. The Commission found that the attack, likely launched by Russian forces, was indiscriminate, and that Russian forces failed to take feasible precautions despite the hundreds of civilians gathered there.",
+        "sources": [
+          {
+            "org": "UN Commission of Inquiry on Ukraine",
+            "doc": "Report A/HRC/52/62 (Mar 2023), para. 31",
+            "url": "https://undocs.org/en/A/HRC/52/62"
+          },
+          {
+            "org": "UN in Ukraine",
+            "doc": "UN Country Team statement, 8 Apr 2022",
+            "url": "https://ukraine.un.org/en/node/177187"
+          }
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          33.4302,
+          49.0859
+        ]
+      },
+      "properties": {
+        "id": "kremenchuk-2022",
+        "title": "Missile strike on the Amstor shopping centre",
+        "place": "Kremenchuk, Poltava Oblast",
+        "precision": "site (approx.)",
+        "date": "2022-06-27",
+        "date_label": "27 Jun 2022",
+        "category": "strike",
+        "attribution": "ru",
+        "attribution_basis": "UN Commission of Inquiry",
+        "killed": 21,
+        "killed_label": "21 killed",
+        "killed_note": "UN Commission of Inquiry and the city's mayor: 21 killed. The Commission found the attack, likely carried out by Russian forces, to be indiscriminate.",
+        "injured": null,
+        "injured_label": null,
+        "description": "A Kh-22 cruise missile hit a busy shopping centre in the afternoon. The fire that followed destroyed the building.",
+        "sources": [
+          {
+            "org": "UN Commission of Inquiry on Ukraine",
+            "doc": "Report A/HRC/52/62 (Mar 2023), para. 31",
+            "url": "https://undocs.org/en/A/HRC/52/62"
+          },
+          {
+            "org": "Office of the Prosecutor General of Ukraine",
+            "doc": "War crimes register",
+            "url": "https://www.gp.gov.ua/"
+          }
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          30.3727,
+          46.0276
+        ]
+      },
+      "properties": {
+        "id": "serhiivka-2022",
+        "title": "Missile strikes on an apartment block and holiday camp",
+        "place": "Serhiivka, Odesa Oblast",
+        "precision": "settlement",
+        "date": "2022-07-01",
+        "date_label": "1 Jul 2022",
+        "category": "strike",
+        "attribution": "ru",
+        "attribution_basis": "Ukrainian authorities",
+        "killed": 21,
+        "killed_label": "21 killed, including a 12-year-old boy",
+        "killed_note": "Odesa regional military administration. The State Emergency Service reported 20 dead. Ukrainian officials and media disagree on whether the missiles were Kh-22 or Kh-31.",
+        "injured": 38,
+        "description": "Missiles launched from aircraft over the Black Sea hit a nine-storey apartment building and a recreation centre in the resort village at night.",
+        "sources": [
+          {
+            "org": "Office of the Prosecutor General of Ukraine",
+            "doc": "War crimes register",
+            "url": "https://www.gp.gov.ua/"
+          }
+        ],
+        "injured_label": "38 injured, including 6 children"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          28.492,
+          49.2389
+        ]
+      },
+      "properties": {
+        "id": "vinnytsia-2022",
+        "title": "Cruise missile strike on central Vinnytsia",
+        "place": "Vinnytsia city centre",
+        "precision": "site (approx.)",
+        "date": "2022-07-14",
+        "date_label": "14 Jul 2022",
+        "category": "strike",
+        "attribution": "ru",
+        "attribution_basis": "Ukrainian authorities",
+        "killed": 26,
+        "killed_label": "At least 26 killed, including 3 children",
+        "killed_note": "Ukrainian authorities: 26 dead, including 3 children, by 21 July 2022. Some later sources give 28.",
+        "injured": null,
+        "description": "Kalibr cruise missiles fired from a submarine hit a medical centre, offices and shops in the city centre on a weekday morning. Russia said it targeted an officers' building.",
+        "sources": [
+          {
+            "org": "Office of the Prosecutor General of Ukraine",
+            "doc": "War crimes register",
+            "url": "https://www.gp.gov.ua/"
+          }
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.6487,
+          47.8294
+        ]
+      },
+      "properties": {
+        "id": "olenivka-2022",
+        "title": "Killing of Ukrainian prisoners of war at Olenivka",
+        "place": "Olenivka penal colony, occupied Donetsk Oblast",
+        "precision": "settlement",
+        "date": "2022-07-29",
+        "date_label": "29 Jul 2022",
+        "category": "pow",
+        "attribution": "nd",
+        "attribution_basis": "OHCHR found the blast was not caused by a HIMARS rocket, as Russia claimed",
+        "killed": 53,
+        "killed_label": "53 POWs killed",
+        "killed_note": "Ukrainian authorities. The UN (OHCHR, July 2024) gives at least 50 killed and 151 injured; OHCHR's October 2023 report gave at least 51 killed and 139 injured.",
+        "injured": 151,
+        "injured_label": "151 injured",
+        "description": "An explosion destroyed a barrack holding Ukrainian prisoners of war, many of them captured after the siege of Mariupol. OHCHR concluded that the explosions were not caused by HIMARS rockets, as Russia claimed, and that the damage pattern pointed to a projectile travelling east to west. It could not determine the weapon or who fired it; Russia has not given the UN access to the site.",
+        "sources": [
+          {
+            "org": "UN in Ukraine / OHCHR",
+            "doc": "Olenivka: two years after deadly strike (Jul 2024)",
+            "url": "https://ukraine.un.org/en/274954-olenivka-two-years-deadly-strike-killed-dozens-ukrainian-pows-continued-call-accountability"
+          }
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          36.2267,
+          48.1284
+        ]
+      },
+      "properties": {
+        "id": "chaplyne-2022",
+        "title": "Rocket strike on Chaplyne railway station",
+        "place": "Chaplyne, Dnipropetrovsk Oblast",
+        "precision": "settlement",
+        "date": "2022-08-24",
+        "date_label": "24 Aug 2022 (Independence Day)",
+        "category": "strike",
+        "attribution": "ru",
+        "attribution_basis": "Ukrainian authorities",
+        "killed": 25,
+        "killed_label": "25 killed, including 2 children",
+        "killed_note": "Ukrainian authorities.",
+        "injured": 31,
+        "injured_label": "31 injured",
+        "description": "Rockets hit a passenger train and houses near the station on Ukraine's Independence Day. Russia said it struck a military train.",
+        "sources": [
+          {
+            "org": "Office of the Prosecutor General of Ukraine",
+            "doc": "War crimes register",
+            "url": "https://www.gp.gov.ua/"
+          }
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.24,
+          49.183
+        ]
+      },
+      "properties": {
+        "id": "izium-2022",
+        "title": "Mass burial site and torture rooms in Izium",
+        "place": "Forest burial site, Izium, Kharkiv Oblast",
+        "precision": "site (approx.)",
+        "date": "2022-09-15",
+        "date_label": "Found 15 Sep 2022, after six months of occupation",
+        "category": "killing",
+        "attribution": "ru",
+        "attribution_basis": "UN Commission of Inquiry (torture in Kharkiv region)",
+        "killed": 447,
+        "killed_label": "447 bodies exhumed",
+        "killed_note": "Kharkiv regional authorities: 215 women, 194 men, 5 children, 22 servicemen and 11 people whose sex could not be determined. Prosecutors put the civilian dead at 425. Most showed signs of violent death; about 30 showed signs of torture or summary execution.",
+        "injured": null,
+        "description": "After Ukrainian forces retook Izium, investigators exhumed 447 bodies from graves in a forest on the edge of town. Some died of shelling or lack of medical care during the occupation; others showed signs of violent death. The UN Commission of Inquiry documented torture by Russian forces in Kharkiv region.",
+        "sources": [
+          {
+            "org": "UN Commission of Inquiry on Ukraine",
+            "doc": "Report A/HRC/52/62 (Mar 2023)",
+            "url": "https://undocs.org/en/A/HRC/52/62"
+          },
+          {
+            "org": "Office of the Prosecutor General of Ukraine",
+            "doc": "War crimes register",
+            "url": "https://www.gp.gov.ua/"
+          }
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          35.247,
+          47.789
+        ]
+      },
+      "properties": {
+        "id": "zaporizhzhia-convoy-2022",
+        "title": "Strike on a civilian convoy outside Zaporizhzhia",
+        "place": "Southern outskirts of Zaporizhzhia",
+        "precision": "site (approx.)",
+        "date": "2022-09-30",
+        "date_label": "30 Sep 2022",
+        "category": "strike",
+        "attribution": "ru",
+        "attribution_basis": "Ukrainian authorities",
+        "killed": 31,
+        "killed_label": "31 killed, including 2 children",
+        "killed_note": "Zaporizhzhia regional governor: 30 civilians and a police officer who was helping people. The National Police first reported 30 killed and 88 injured. Russian-installed officials blamed Ukraine.",
+        "injured": 88,
+        "injured_label": "88 injured",
+        "description": "Missiles hit a line of cars waiting near a car market to cross into occupied territory to collect relatives and deliver supplies.",
+        "sources": [
+          {
+            "org": "Office of the Prosecutor General of Ukraine",
+            "doc": "War crimes register",
+            "url": "https://www.gp.gov.ua/"
+          }
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          32.6169,
+          46.6354
+        ]
+      },
+      "properties": {
+        "id": "kherson-detention-2022",
+        "title": "Torture in Russian detention during the occupation of Kherson",
+        "place": "Kherson city and region",
+        "precision": "area",
+        "date": "2022-03-02",
+        "date_label": "Mar – Nov 2022",
+        "category": "detention",
+        "attribution": "ru",
+        "attribution_basis": "UN Commission of Inquiry",
+        "killed": null,
+        "killed_label": "Not quantified",
+        "killed_note": "The Commission documented individual cases; it has not published a total.",
+        "affected": "Detainees held in police stations and other sites across the region",
+        "injured": null,
+        "description": "During eight months of occupation, Russian authorities detained civilians suspected of supporting Ukraine and subjected many to beatings, electric shocks and sexual violence. The Commission found that torture in Russian detention was widespread and systematic, and later concluded that the torture and enforced disappearances amounted to crimes against humanity.",
+        "sources": [
+          {
+            "org": "UN Commission of Inquiry on Ukraine",
+            "doc": "Report A/HRC/55/66 (Mar 2024)",
+            "url": "https://undocs.org/en/A/HRC/55/66"
+          },
+          {
+            "org": "UN in Ukraine / Commission of Inquiry",
+            "doc": "Enforced disappearances by Russian authorities amount to crimes against humanity (Mar 2025)",
+            "url": "https://ukraine.un.org/en/291203-enforced-disappearances-committed-russian-authorities-amount-crimes-against-humanity-says-un"
+          }
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.9866,
+          49.2266
+        ]
+      },
+      "properties": {
+        "id": "makiivka-luhansk-2022",
+        "title": "Killing of Russian soldiers after surrender",
+        "place": "Makiivka, Luhansk Oblast",
+        "precision": "settlement",
+        "date": "2022-11-12",
+        "date_label": "Mid-Nov 2022",
+        "category": "pow",
+        "attribution": "ua",
+        "attribution_basis": "OHCHR found the videos highly likely authentic and called for an investigation",
+        "killed": 11,
+        "killed_label": "About 11 killed",
+        "killed_note": "About 12 bodies are visible in the footage; Russia said at least 11 soldiers were killed. On 25 November 2022, the UN High Commissioner for Human Rights said a preliminary analysis found the videos highly likely to be authentic.",
+        "injured": null,
+        "description": "Videos showed Russian soldiers lying on the ground after surrendering, followed by gunfire and later their bodies. Ukraine's ombudsman said a Russian soldier opened fire while the group surrendered, which would be perfidy, and Ukrainian prosecutors opened an investigation. In March 2023 OHCHR reported the summary execution of up to 25 Russian prisoners of war and people hors de combat by Ukrainian forces, and of 15 Ukrainian prisoners of war by Russian forces.",
+        "sources": [
+          {
+            "org": "UN in Ukraine / HRMMU",
+            "doc": "Treatment of prisoners of war report (24 Mar 2023)",
+            "url": "https://ukraine.un.org/en/node/224744"
+          }
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          35.0668,
+          48.4187
+        ]
+      },
+      "properties": {
+        "id": "dnipro-2023",
+        "title": "Missile strike on an apartment building in Dnipro",
+        "place": "Naberezhna Peremohy 118, Dnipro",
+        "precision": "site",
+        "date": "2023-01-14",
+        "date_label": "14 Jan 2023",
+        "category": "strike",
+        "attribution": "ru",
+        "attribution_basis": "UN Commission of Inquiry",
+        "killed": 46,
+        "killed_label": "46 killed, including 6 children",
+        "killed_note": "Ukrainian authorities. OHCHR told the Security Council at least 45 civilians were killed.",
+        "injured": 80,
+        "injured_label": "About 80 injured",
+        "description": "A Kh-22 missile collapsed a section of a nine-storey building, leaving more than 1,000 people homeless. The Commission found no military target near the building and concluded that Russian forces likely carried out an indiscriminate attack with a powerful and inaccurate weapon.",
+        "sources": [
+          {
+            "org": "UN News",
+            "doc": "Civilian attacks 'must end immediately' (Jan 2023)",
+            "url": "https://news.un.org/en/story/2023/01/1132492"
+          },
+          {
+            "org": "UN Commission of Inquiry on Ukraine",
+            "doc": "Report A/78/540 (Oct 2023)",
+            "url": "https://www.ohchr.org/sites/default/files/documents/hrbodies/hrcouncil/coiukraine/A-78-540-AEV.pdf"
+          }
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          30.2218,
+          48.7484
+        ]
+      },
+      "properties": {
+        "id": "uman-2023",
+        "title": "Cruise missile strike on an apartment block in Uman",
+        "place": "Uman, Cherkasy Oblast",
+        "precision": "settlement",
+        "date": "2023-04-28",
+        "date_label": "28 Apr 2023",
+        "category": "strike",
+        "attribution": "ru",
+        "attribution_basis": "UN Commission of Inquiry",
+        "killed": 23,
+        "killed_label": "23 killed, including at least 4 children",
+        "killed_note": "Ukrainian Interior Ministry. AP's early report counted 3 children. The UN Commission of Inquiry found the strike was an indiscriminate attack by Russian forces.",
+        "injured": null,
+        "description": "A Kh-101 cruise missile hit a nine-storey residential building at night. Most of the victims were women and children.",
+        "sources": [
+          {
+            "org": "UN Commission of Inquiry on Ukraine",
+            "doc": "Report A/78/540 (Oct 2023), para. 19",
+            "url": "https://www.ohchr.org/sites/default/files/documents/hrbodies/hrcouncil/coiukraine/A-78-540-AEV.pdf"
+          },
+          {
+            "org": "UN News",
+            "doc": "UN condemns 'inexcusable' deadly airstrikes (Apr 2023)",
+            "url": "https://news.un.org/en/story/2023/04/1136202"
+          }
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          24.013,
+          49.835
+        ]
+      },
+      "properties": {
+        "id": "lviv-2023",
+        "title": "Cruise missile strike on residential buildings in Lviv",
+        "place": "Lviv",
+        "precision": "site (approx.)",
+        "date": "2023-07-06",
+        "date_label": "6 Jul 2023",
+        "category": "strike",
+        "attribution": "ru",
+        "attribution_basis": "UN Commission of Inquiry",
+        "killed": 10,
+        "killed_label": "10 killed",
+        "killed_note": "Ukrainian authorities: 10 killed, 42 injured. The UN Commission of Inquiry counted 9 killed (8 women, 1 man) and 45 injured.",
+        "injured": 42,
+        "description": "A Kalibr cruise missile destroyed the upper floors of an apartment building inside the historic perimeter of Lviv, a UNESCO World Heritage site.",
+        "sources": [
+          {
+            "org": "UN Commission of Inquiry on Ukraine",
+            "doc": "Report A/HRC/55/66 (Mar 2024)",
+            "url": "https://undocs.org/en/A/HRC/55/66"
+          }
+        ],
+        "injured_label": "42 injured"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          30.7346,
+          46.4848
+        ]
+      },
+      "properties": {
+        "id": "odesa-cathedral-2023",
+        "title": "Strike damaging the Transfiguration Cathedral in Odesa",
+        "place": "Historic centre of Odesa (UNESCO World Heritage)",
+        "precision": "site",
+        "date": "2023-07-23",
+        "date_label": "23 Jul 2023",
+        "category": "protected",
+        "attribution": "ru",
+        "attribution_basis": "UN Commission of Inquiry",
+        "killed": 2,
+        "killed_label": "2 killed",
+        "killed_note": "UN Commission of Inquiry, for the cathedral and two nearby residential buildings.",
+        "injured": 19,
+        "description": "Onyx anti-ship cruise missiles hit the Orthodox Transfiguration Cathedral and two residential buildings, and damaged 44 buildings in the historic centre, a UNESCO World Heritage site. The Commission found that Russian forces carried out indiscriminate attacks and that the damage was unlikely to have been caused by air defence interception, as Russia claimed.",
+        "sources": [
+          {
+            "org": "UN Commission of Inquiry on Ukraine",
+            "doc": "Report A/HRC/55/66 (Mar 2024)",
+            "url": "https://undocs.org/en/A/HRC/55/66"
+          }
+        ],
+        "injured_label": "19 injured, including 3 children"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          31.2999,
+          51.4916
+        ]
+      },
+      "properties": {
+        "id": "chernihiv-theatre-2023",
+        "title": "Ballistic missile strike on Chernihiv's theatre square",
+        "place": "Drama theatre, Chernihiv",
+        "precision": "site",
+        "date": "2023-08-19",
+        "date_label": "19 Aug 2023",
+        "category": "strike",
+        "attribution": "ru",
+        "attribution_basis": "Ukrainian authorities",
+        "killed": 7,
+        "killed_label": "7 killed, including a 6-year-old girl",
+        "killed_note": "Chernihiv regional authorities. Some later reports give more than 200 injured.",
+        "injured": 148,
+        "injured_label": "148 injured",
+        "description": "An Iskander missile hit the square outside the drama theatre on a Saturday morning while people were walking to church and attending an event.",
+        "sources": [
+          {
+            "org": "Office of the Prosecutor General of Ukraine",
+            "doc": "War crimes register",
+            "url": "https://www.gp.gov.ua/"
+          }
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.3527,
+          49.6656
+        ]
+      },
+      "properties": {
+        "id": "hroza-2023",
+        "title": "Missile strike on a wake in Hroza",
+        "place": "Hroza, Kharkiv Oblast",
+        "precision": "settlement",
+        "date": "2023-10-05",
+        "date_label": "5 Oct 2023",
+        "category": "strike",
+        "attribution": "ru",
+        "attribution_basis": "OHCHR / HRMMU",
+        "killed": 59,
+        "killed_label": "59 killed, including an 8-year-old boy",
+        "killed_note": "HRMMU. The village had about 300 residents before the full-scale invasion.",
+        "injured": null,
+        "description": "A missile hit a café during the funeral wake for a local soldier. HRMMU found reasonable grounds to believe Russian forces launched the missile and that they either failed to check that the target was military or deliberately targeted civilians, violating international humanitarian law either way.",
+        "sources": [
+          {
+            "org": "UN in Ukraine / HRMMU",
+            "doc": "UN report links Russia to deadly attack on Ukrainian village (Oct 2023)",
+            "url": "https://ukraine.un.org/en/251228-un-report-links-russia-deadly-attack-ukrainian-village"
+          }
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.64,
+          47.958
+        ]
+      },
+      "properties": {
+        "id": "donetsk-market-2024",
+        "title": "Shelling of a market in occupied Donetsk",
+        "place": "Tekstylshchyk, Donetsk (occupied)",
+        "precision": "site (approx.)",
+        "date": "2024-01-21",
+        "date_label": "21 Jan 2024",
+        "category": "strike",
+        "attribution": "nd",
+        "attribution_basis": "The UN Secretary-General condemned the attack without attributing it",
+        "killed": 27,
+        "killed_label": "27 killed",
+        "killed_note": "Russian-installed authorities, who blamed Ukrainian forces; some later reports give 28. The UN did not independently verify the figures. The UN Secretary-General's spokesperson condemned the shelling of Donetsk city.",
+        "injured": 25,
+        "injured_label": "25 injured",
+        "description": "Shells hit a busy Sunday market in a suburb of Russian-occupied Donetsk city.",
+        "sources": [
+          {
+            "org": "OHCHR / HRMMU",
+            "doc": "Protection of civilians update, January 2024",
+            "url": "https://ukraine.ohchr.org/en/reports"
+          }
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          30.745,
+          46.457
+        ]
+      },
+      "properties": {
+        "id": "odesa-double-tap-2024",
+        "title": "\"Double-tap\" missile strike in Odesa",
+        "place": "Odesa",
+        "precision": "settlement",
+        "date": "2024-03-15",
+        "date_label": "15 Mar 2024",
+        "category": "strike",
+        "attribution": "ru",
+        "attribution_basis": "Ukrainian authorities",
+        "killed": 21,
+        "killed_label": "21 killed, including a paramedic and a rescuer",
+        "killed_note": "Ukrainian Interior Ministry. Injured counts range from 55 to 74 at different times.",
+        "injured": 73,
+        "injured_label": "About 73 injured",
+        "description": "A second ballistic missile struck the same spot after rescuers and medics arrived to help victims of the first strike.",
+        "sources": [
+          {
+            "org": "OHCHR / HRMMU",
+            "doc": "Protection of civilians update, March 2024",
+            "url": "https://ukraine.ohchr.org/en/reports"
+          }
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          36.3338,
+          50.0263
+        ]
+      },
+      "properties": {
+        "id": "kharkiv-epicentr-2024",
+        "title": "Glide bomb strike on a Kharkiv hardware store",
+        "place": "Epicentr store, Kharkiv",
+        "precision": "site",
+        "date": "2024-05-25",
+        "date_label": "25 May 2024",
+        "category": "strike",
+        "attribution": "ru",
+        "attribution_basis": "Ukrainian authorities",
+        "killed": 19,
+        "killed_label": "19 killed",
+        "killed_note": "Ukrainian Interior Ministry, at the end of search and rescue on 29 May 2024. Prosecutors identified two UMPB D-30 glide bombs.",
+        "injured": 54,
+        "injured_label": "54 injured",
+        "description": "Guided aerial bombs hit a crowded DIY hypermarket on a Saturday afternoon and set it on fire.",
+        "sources": [
+          {
+            "org": "OHCHR / HRMMU",
+            "doc": "Protection of civilians update, May 2024",
+            "url": "https://ukraine.ohchr.org/en/reports"
+          }
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          30.4805,
+          50.4513
+        ]
+      },
+      "properties": {
+        "id": "okhmatdyt-2024",
+        "title": "Missile strike on Okhmatdyt children's hospital",
+        "place": "Okhmatdyt National Children's Hospital, Kyiv",
+        "precision": "site",
+        "date": "2024-07-08",
+        "date_label": "8 Jul 2024",
+        "category": "protected",
+        "attribution": "ru",
+        "attribution_basis": "OHCHR / HRMMU",
+        "killed": 2,
+        "killed_label": "2 killed at the hospital, including a staff member",
+        "killed_note": "HRMMU: at least 18 injured at the hospital. The same wave of strikes killed at least 43 civilians, including 5 children, across Ukraine.",
+        "injured": 18,
+        "injured_label": "18+ injured",
+        "description": "A missile destroyed the toxicology building, where children received dialysis, and damaged the cardiology centre. HRMMU concluded that the hospital was likely hit directly by a missile, not by debris from an interception. Intentionally attacking a protected hospital is a war crime.",
+        "sources": [
+          {
+            "org": "OHCHR / HRMMU",
+            "doc": "Protection of Civilians in Armed Conflict, July 2024",
+            "url": "https://ukraine.ohchr.org/en/Protection-of-Civilians-in-Armed-Conflict-July-2024"
+          },
+          {
+            "org": "UN in Ukraine",
+            "doc": "Security Council briefing on the children's hospital strike",
+            "url": "https://ukraine.un.org/en/273743-un-acting-relief-chief-briefs-security-council-childrens-hospital-strike-ukraine"
+          }
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          32.722,
+          46.674
+        ]
+      },
+      "properties": {
+        "id": "kherson-drones-2024",
+        "title": "Drone attacks hunting civilians in Kherson",
+        "place": "Right bank of the Dnipro, Kherson Oblast",
+        "precision": "area",
+        "date": "2024-07-01",
+        "date_label": "Since Jul 2024, ongoing",
+        "category": "killing",
+        "attribution": "ru",
+        "attribution_basis": "UN Commission of Inquiry",
+        "killed": null,
+        "killed_label": "Not quantified in the finding",
+        "killed_note": "HRMMU publishes monthly casualty figures for short-range drone attacks.",
+        "injured": null,
+        "description": "Russian forces use short-range drones to chase and strike people on foot, cyclists, buses, ambulances and aid points along a stretch of more than 100 km. The Commission concluded in May 2025 that these attacks were the crime against humanity of murder and the war crime of attacking civilians. In October 2025 it added the crime against humanity of forcible transfer of population.",
+        "sources": [
+          {
+            "org": "UN Commission of Inquiry on Ukraine",
+            "doc": "Commission concludes drone attacks in Kherson are crimes against humanity (May 2025)",
+            "url": "https://ukraine.un.org/en/295172-un-commission-concludes-russian-armed-forces%E2%80%99-drone-attacks-against-civilians-kherson"
+          },
+          {
+            "org": "UN in Ukraine / Commission of Inquiry",
+            "doc": "Commission update on drone attacks (Sep 2025)",
+            "url": "https://ukraine.un.org/en/node/301966"
+          }
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          33.3918,
+          47.9105
+        ]
+      },
+      "properties": {
+        "id": "kryvyi-rih-2025",
+        "title": "Ballistic missile strike near a playground in Kryvyi Rih",
+        "place": "Kryvyi Rih, Dnipropetrovsk Oblast",
+        "precision": "settlement",
+        "date": "2025-04-04",
+        "date_label": "4 Apr 2025",
+        "category": "strike",
+        "attribution": "ru",
+        "attribution_basis": "OHCHR / HRMMU",
+        "killed": 20,
+        "killed_label": "20 killed, including 9 children",
+        "killed_note": "HRMMU: 8 men, 3 women, 7 boys and 2 girls. Local authorities reported 75 injured, including 12 children.",
+        "injured": 75,
+        "injured_label": "75 injured",
+        "description": "A missile exploded over a residential street next to a playground in the early evening. It was the deadliest single strike on children that the UN has verified since February 2022. Witnesses told the UN there was no military presence nearby.",
+        "sources": [
+          {
+            "org": "OHCHR",
+            "doc": "Türk denounces Russian attack which leaves nine children dead",
+            "url": "https://ukraine.ohchr.org/en/T%C3%BCrk-denounces-Russian-attack-which-leaves-nine-children-dead-in-Ukraine"
+          },
+          {
+            "org": "UN News",
+            "doc": "UN rights chief urges probe (Apr 2025)",
+            "url": "https://news.un.org/en/story/2025/04/1161946"
+          }
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          34.7981,
+          50.9077
+        ]
+      },
+      "properties": {
+        "id": "sumy-2025",
+        "title": "Palm Sunday missile strike on central Sumy",
+        "place": "Sumy city centre",
+        "precision": "site (approx.)",
+        "date": "2025-04-13",
+        "date_label": "13 Apr 2025",
+        "category": "strike",
+        "attribution": "ru",
+        "attribution_basis": "OHCHR / HRMMU",
+        "killed": 35,
+        "killed_label": "35 killed, including 2 boys",
+        "killed_note": "Sumy regional prosecutor's office. HRMMU verified at least 31 killed and 105 injured.",
+        "injured": 117,
+        "injured_label": "117 injured, including 15 children",
+        "description": "Two ballistic missiles hit the historic centre as people gathered for Palm Sunday. The second exploded above the street two minutes after the first, spraying fragments over a city bus and a wide public area.",
+        "sources": [
+          {
+            "org": "UN News",
+            "doc": "UN denounces deadly Palm Sunday attack (Apr 2025)",
+            "url": "https://news.un.org/en/story/2025/04/1162196"
+          },
+          {
+            "org": "UN in Ukraine",
+            "doc": "Statement of the Humanitarian Coordinator",
+            "url": "https://ukraine.un.org/en/292675-palm-sunday-should-be-day-peace-people-sumy-have-been-subjected-terror"
+          }
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          30.365,
+          50.457
+        ]
+      },
+      "properties": {
+        "id": "kyiv-sviatoshynskyi-2025",
+        "title": "Missile strike collapsing an apartment block in Kyiv",
+        "place": "Sviatoshynskyi district, Kyiv",
+        "precision": "settlement",
+        "date": "2025-07-31",
+        "date_label": "31 Jul 2025",
+        "category": "strike",
+        "attribution": "ru",
+        "attribution_basis": "OHCHR / HRMMU",
+        "killed": 31,
+        "killed_label": "31 killed, including 5 children",
+        "killed_note": "Kyiv city authorities. On the day, HRMMU had verified at least 11 killed and more than 130 injured. Later counts give 159 to 174 injured.",
+        "injured": 159,
+        "injured_label": "159+ injured",
+        "description": "A missile destroyed an entire section of a nine-storey apartment building during a night attack with drones and cruise missiles.",
+        "sources": [
+          {
+            "org": "UN in Ukraine / HRMMU",
+            "doc": "Kyiv suffers deadliest attack in almost a year",
+            "url": "https://ukraine.un.org/en/296381-kyiv-suffers-deadliest-attack-almost-year-un-human-rights-monitors-say"
+          }
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          30.64,
+          50.42
+        ]
+      },
+      "properties": {
+        "id": "kyiv-darnytskyi-2025",
+        "title": "Night strike on Kyiv's Darnytskyi district",
+        "place": "Darnytskyi district, Kyiv",
+        "precision": "settlement",
+        "date": "2025-08-28",
+        "date_label": "28 Aug 2025",
+        "category": "strike",
+        "attribution": "ru",
+        "attribution_basis": "Ukrainian authorities",
+        "killed": 25,
+        "killed_label": "25 killed, including 4 children",
+        "killed_note": "President Zelensky, 29 August 2025. Of the dead, 22 were in one collapsed five-storey building; the youngest was under 3. Injured counts range from about 30 to 65.",
+        "injured": null,
+        "description": "A missile hit a five-storey apartment building directly, collapsing a section of it, during a combined drone and missile attack on the capital.",
+        "sources": [
+          {
+            "org": "UNICEF",
+            "doc": "Four children reportedly killed in wave of deadly attacks on Kyiv",
+            "url": "https://www.unicef.org/press-releases/four-children-reportedly-killed-wave-deadly-attacks-kyiv-ukraine"
+          }
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          25.5948,
+          49.5535
+        ]
+      },
+      "properties": {
+        "id": "ternopil-2025",
+        "title": "Cruise missile strike on apartment blocks in Ternopil",
+        "place": "Ternopil",
+        "precision": "settlement",
+        "date": "2025-11-19",
+        "date_label": "19 Nov 2025",
+        "category": "strike",
+        "attribution": "ru",
+        "attribution_basis": "Ukrainian authorities",
+        "killed": 38,
+        "killed_label": "38 killed, including at least 7 children",
+        "killed_note": "Ukrainian authorities, as of 8 December 2025. Reports give 7 or 8 children among the dead.",
+        "injured": 94,
+        "injured_label": "About 94 injured",
+        "description": "Kh-101 cruise missiles hit two multi-storey apartment buildings at dawn. It was the deadliest attack on western Ukraine since the start of the full-scale invasion.",
+        "sources": [
+          {
+            "org": "OHCHR / HRMMU",
+            "doc": "Protection of civilians update, November 2025",
+            "url": "https://ukraine.ohchr.org/en/reports"
+          },
+          {
+            "org": "Office of the Prosecutor General of Ukraine",
+            "doc": "War crimes register",
+            "url": "https://www.gp.gov.ua/"
+          }
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          36.2138,
+          49.9891
+        ]
+      },
+      "properties": {
+        "id": "kharkiv-rescuers-2026",
+        "title": "\"Double-tap\" strike on rescuers in Kharkiv",
+        "place": "Kholodnohirskyi district, Kharkiv",
+        "precision": "settlement",
+        "date": "2026-06-15",
+        "date_label": "15 Jun 2026",
+        "category": "strike",
+        "attribution": "ru",
+        "attribution_basis": "Reported by the UN",
+        "killed": 5,
+        "killed_label": "5 killed: 4 rescuers and a city emergency worker",
+        "killed_note": "Ukrainian Interior Minister and prosecutors. UN News reported 4 rescuers killed and 6 injured.",
+        "injured": 6,
+        "injured_label": "6 injured",
+        "description": "A second strike hit firefighters putting out a fire at a civilian business hit by the first strike, at about 1:30 am, during an overnight wave of missiles and drones on Kyiv and Kharkiv.",
+        "sources": [
+          {
+            "org": "UN News",
+            "doc": "Latest Russian attack kills civilians, damages cultural landmark (Jun 2026)",
+            "url": "https://news.un.org/en/story/2026/06/1167718"
+          }
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          30.5574,
+          50.4346
+        ]
+      },
+      "properties": {
+        "id": "kyiv-lavra-2026",
+        "title": "Damage to the Kyiv-Pechersk Lavra",
+        "place": "Kyiv-Pechersk Lavra (UNESCO World Heritage), Kyiv",
+        "precision": "site",
+        "date": "2026-06-15",
+        "date_label": "15 Jun 2026",
+        "category": "protected",
+        "attribution": "ru",
+        "attribution_basis": "Ukrainian authorities; Russia denies, blaming Ukrainian air defence",
+        "killed": null,
+        "killed_label": "Casualties elsewhere in the city",
+        "killed_note": "The UN said several civilians were killed and dozens injured across Kyiv and Kharkiv that night.",
+        "injured": null,
+        "description": "A strike set the 11th-century Dormition Cathedral on fire. UNESCO reported significant damage inside and outside the cathedral, with the fortifications and the Ivan Kushnik Tower also affected. Ukrainian officials estimate restoration at €10 million.",
+        "sources": [
+          {
+            "org": "UN News",
+            "doc": "Latest Russian attack kills civilians, damages cultural landmark (Jun 2026)",
+            "url": "https://news.un.org/en/story/2026/06/1167718"
+          }
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          30.5234,
+          50.4501
+        ]
+      },
+      "properties": {
+        "id": "kyiv-july-2026",
+        "title": "Largest strike of July 2026, mainly on Kyiv",
+        "place": "Kyiv",
+        "precision": "settlement",
+        "date": "2026-07-02",
+        "date_label": "Night of 1–2 Jul 2026",
+        "category": "strike",
+        "attribution": "ru",
+        "attribution_basis": "OHCHR / HRMMU",
+        "killed": 31,
+        "killed_label": "31 killed",
+        "killed_note": "State Emergency Service of Ukraine, at the end of search and rescue on 4 July. HRMMU reported at least 30 killed and 104 injured.",
+        "injured": 102,
+        "injured_label": "102 injured",
+        "description": "Russian forces launched 74 missiles and almost 500 long-range drones, mainly at Kyiv city.",
+        "sources": [
+          {
+            "org": "UN News / HRMMU",
+            "doc": "Civilian casualties hit highest level since March 2022 (Aug 2026)",
+            "url": "https://news.un.org/en/story/2026/08/1168134"
+          }
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          30.8459,
+          50.5333
+        ]
+      },
+      "properties": {
+        "id": "kyiv-august-2026",
+        "title": "Deadliest strike on Kyiv in August 2026",
+        "place": "Brovary district and Kyiv",
+        "precision": "area",
+        "date": "2026-08-05",
+        "date_label": "Night of 4–5 Aug 2026",
+        "category": "strike",
+        "attribution": "ru",
+        "attribution_basis": "OHCHR",
+        "killed": 17,
+        "killed_label": "17 killed",
+        "killed_note": "UN human rights office in Ukraine. Most deaths were in Kyiv Oblast: 8 people were killed at the train station in Kvitneve, near Brovary.",
+        "injured": 44,
+        "injured_label": "44 injured",
+        "description": "Ballistic missiles and long-range drones hit the capital overnight. The UN Secretary-General called the attack a clear violation of international humanitarian law.",
+        "sources": [
+          {
+            "org": "UN News",
+            "doc": "'A clear violation': Guterres deplores deadly attack on Kyiv (Aug 2026)",
+            "url": "https://news.un.org/en/story/2026/08/1168095"
+          }
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          32.3876,
+          50.5931
+        ]
+      },
+      "properties": {
+        "id": "pryluky-2026",
+        "title": "Overnight strikes on Pryluky and Chernihiv region",
+        "place": "Pryluky, Chernihiv Oblast",
+        "precision": "settlement",
+        "date": "2026-10-07",
+        "date_label": "7 Oct 2026",
+        "category": "strike",
+        "attribution": "ru",
+        "attribution_basis": "Ukrainian authorities; condemned by the UN",
+        "killed": 22,
+        "killed_label": "22 killed, including 5 children",
+        "killed_note": "State Emergency Service of Ukraine, at the end of search and rescue. Three of the children were one-year-old boys. UN News reported at least 19 killed in the region on the day.",
+        "injured": 54,
+        "injured_label": "54 injured",
+        "description": "A Kh-101 cruise missile partially destroyed a five-storey apartment building in the morning while many residents were asleep. Russia said it struck an industrial site.",
+        "sources": [
+          {
+            "org": "UN News",
+            "doc": "UN condemns latest attacks and calls for civilian protection (Oct 2026)",
+            "url": "https://news.un.org/en/story/2026/10/1168548"
+          }
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          37.5844,
+          48.7389
+        ]
+      },
+      "properties": {
+        "id": "kramatorsk-buses-2026",
+        "title": "Glide bomb strike on two passenger buses in Kramatorsk",
+        "place": "Public transport stop, Kramatorsk",
+        "precision": "settlement",
+        "date": "2026-10-08",
+        "date_label": "8 Oct 2026",
+        "category": "strike",
+        "attribution": "ru",
+        "attribution_basis": "Ukrainian authorities; condemned by the UN High Commissioner for Human Rights",
+        "killed": 33,
+        "killed_label": "33 killed",
+        "killed_note": "State Emergency Service of Ukraine; local authorities first reported 30 dead, the figure cited by the UN. Injured: 22 per the Donetsk regional governor, 18 per the State Emergency Service. No final prosecutor figure yet.",
+        "injured": 22,
+        "description": "A guided aerial bomb hit two buses at a stop. Volker Türk said the strike was part of a four-day wave that killed at least 85 civilians and injured 346 across Ukraine, and that deliberate attacks on civilians may amount to war crimes.",
+        "sources": [
+          {
+            "org": "OHCHR",
+            "doc": "Comment by UN Human Rights Chief Volker Türk on deadly strikes in Ukraine (8 Oct 2026)",
+            "url": "https://ukraine.ohchr.org/en/Comment-by-UN-Human-Rights-Chief-Volker-T%C3%BCrk-on-deadly-strikes-in-Ukraine"
+          }
+        ],
+        "injured_label": "22 injured (preliminary)"
+      }
+    }
+  ]
+}
